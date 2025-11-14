@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CityPulse NYC - Marketing Website
+
+Official marketing website for CityPulse NYC - AI-powered discovery for fashion, landmarks, and culture in New York City.
+
+## About CityPulse
+
+CityPulse uses cutting-edge multimodal vision AI to help people experience NYC in new ways:
+
+- **Fashion Trends**: Discover emerging street style trends across all five boroughs
+- **Sightseeing**: Experience iconic landmarks through fresh perspectives
+- **News & Events**: Stay ahead of what's happening in the city
+
+## Technology Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS + Custom CSS
+- **Animations**: Framer Motion
+- **Language**: TypeScript
+- **Deployment**: Vercel
+
+## Features
+
+- Responsive single-page design
+- Dark glassy skeumorphic aesthetic matching the mobile app
+- Animated hero carousel showcasing key features
+- Comprehensive sections highlighting multimodal AI capabilities
+- SEO optimized with Open Graph and Twitter Card metadata
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+citypulse-website/
+├── app/
+│   ├── layout.tsx          # Root layout with metadata
+│   ├── page.tsx            # Main landing page
+│   └── globals.css         # Global styles and design system
+├── components/
+│   ├── Hero.tsx            # Hero section with carousel
+│   ├── ValueProposition.tsx
+│   ├── PrimaryUseCases.tsx # Fashion, Sightseeing, News
+│   ├── Technology.tsx      # Multimodal AI section
+│   ├── HowItWorks.tsx
+│   ├── About.tsx
+│   └── Footer.tsx
+└── public/
+    └── screenshots/        # App screenshots
+```
 
-## Learn More
+## Design System
 
-To learn more about Next.js, take a look at the following resources:
+- **Colors**:
+  - Black (#000000) background
+  - Accent red (#FF1744)
+  - White text with gray variations
+- **Effects**: Glass morphism with blur and transparency
+- **Typography**: SF Pro Display / Inter-style fonts
+- **Spacing**: 8px base unit system
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Company
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Built by **Contrivance Inc.**
+Based in New York City
+Applying to Collaborative Fund AIR Program
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For inquiries: rogersentongo@gmail.com
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+© 2025 Contrivance Inc. All rights reserved.
