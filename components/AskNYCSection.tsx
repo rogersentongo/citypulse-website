@@ -139,23 +139,23 @@ export default function AskNYCSection() {
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
-                className="glass p-6 rounded-xl"
+                className="glass p-8 rounded-xl max-w-2xl mx-auto"
               >
-                <h4 className="text-white font-semibold mb-5">Fashion Intelligence Features:</h4>
-                <div className="space-y-3">
-                  <div className="border-l-2 border-[#FF1744] pl-4">
+                <h4 className="text-white font-semibold mb-6 text-center">Fashion Intelligence Features:</h4>
+                <div className="space-y-4">
+                  <div className="text-center">
                     <p className="text-sm text-gray-300">Frame-by-frame fashion analysis</p>
                   </div>
-                  <div className="border-l-2 border-[#FF1744] pl-4">
+                  <div className="text-center">
                     <p className="text-sm text-gray-300">Style pattern recognition across neighborhoods</p>
                   </div>
-                  <div className="border-l-2 border-[#FF1744] pl-4">
+                  <div className="text-center">
                     <p className="text-sm text-gray-300">Shop the look integration</p>
                   </div>
-                  <div className="border-l-2 border-[#FF1744] pl-4">
+                  <div className="text-center">
                     <p className="text-sm text-gray-300">Outfit inspiration based on weather/occasion</p>
                   </div>
-                  <div className="border-l-2 border-[#FF1744] pl-4">
+                  <div className="text-center">
                     <p className="text-sm text-gray-300">See trending styles before they hit Instagram</p>
                   </div>
                 </div>
