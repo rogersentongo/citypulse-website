@@ -165,7 +165,7 @@ export default function IntroSection() {
           <div>
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentIndex}
+                key={`${introSlides[currentIndex].description}-${introSlides[currentIndex].additionalText}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
