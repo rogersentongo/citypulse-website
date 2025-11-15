@@ -141,8 +141,8 @@ export default function AskNYCSection() {
                 animate={{ opacity: 1, height: 'auto' }}
                 className="glass p-8 rounded-xl max-w-2xl mx-auto"
               >
-                <h4 className="text-white font-semibold mb-6 text-center">Fashion Intelligence Features:</h4>
-                <div className="space-y-4">
+                <h4 className="text-white font-semibold mb-8 text-center">Fashion Intelligence Features:</h4>
+                <div className="space-y-5">
                   <div className="text-center">
                     <p className="text-sm text-gray-300">Frame-by-frame fashion analysis</p>
                   </div>

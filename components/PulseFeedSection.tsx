@@ -83,20 +83,20 @@ export default function PulseFeedSection() {
               based on your preferences, and explore what's trending across the city.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-              <div className="glass p-6 rounded-lg text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+              <div className="glass p-7 rounded-lg text-center">
                 <p className="text-white font-semibold mb-2">AI-Curated</p>
                 <p className="text-sm text-gray-400">Based on your preferences</p>
               </div>
-              <div className="glass p-6 rounded-lg text-center">
+              <div className="glass p-7 rounded-lg text-center">
                 <p className="text-white font-semibold mb-2">Duplicate Detection</p>
                 <p className="text-sm text-gray-400">Cleaner feeds, better results</p>
               </div>
-              <div className="glass p-6 rounded-lg text-center">
+              <div className="glass p-7 rounded-lg text-center">
                 <p className="text-white font-semibold mb-2">Borough Filtering</p>
                 <p className="text-sm text-gray-400">Manhattan to Staten Island</p>
               </div>
-              <div className="glass p-6 rounded-lg text-center">
+              <div className="glass p-7 rounded-lg text-center">
                 <p className="text-white font-semibold mb-2">Endless Variety</p>
                 <p className="text-sm text-gray-400">Events, food, fashion & more</p>
               </div>
