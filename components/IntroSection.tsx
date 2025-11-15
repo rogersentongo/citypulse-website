@@ -45,20 +45,56 @@ const introSlides = [
 
 export default function IntroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % introSlides.length);
-    }, 5000);
+    }, 8000); // Increased from 5000ms to 8000ms
     return () => clearInterval(interval);
+  }, [isPaused]);
+
+  // Reset pause when section leaves viewport
+  useEffect(() => {
+    const section = document.getElementById('intro-section');
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          setIsPaused(false);
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
-  const goToSlide = (index: number) => setCurrentIndex(index);
-  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % introSlides.length);
-  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + introSlides.length) % introSlides.length);
+  const handleUserInteraction = () => {
+    setIsPaused(true);
+  };
+
+  const goToSlide = (index: number) => {
+    handleUserInteraction();
+    setCurrentIndex(index);
+  };
+
+  const nextSlide = () => {
+    handleUserInteraction();
+    setCurrentIndex((prev) => (prev + 1) % introSlides.length);
+  };
+
+  const prevSlide = () => {
+    handleUserInteraction();
+    setCurrentIndex((prev) => (prev - 1 + introSlides.length) % introSlides.length);
+  };
 
   return (
-    <section className="section bg-black">
+    <section id="intro-section" className="section bg-black">
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}

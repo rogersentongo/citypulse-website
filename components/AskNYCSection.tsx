@@ -51,22 +51,58 @@ const askNYCSlides = [
 
 export default function AskNYCSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % askNYCSlides.length);
-    }, 5000);
+    }, 8000); // Increased from 5000ms to 8000ms
     return () => clearInterval(interval);
+  }, [isPaused]);
+
+  // Reset pause when section leaves viewport
+  useEffect(() => {
+    const section = document.getElementById('ask-nyc-section');
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          setIsPaused(false);
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
-  const goToSlide = (index: number) => setCurrentIndex(index);
-  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % askNYCSlides.length);
-  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + askNYCSlides.length) % askNYCSlides.length);
+  const handleUserInteraction = () => {
+    setIsPaused(true);
+  };
+
+  const goToSlide = (index: number) => {
+    handleUserInteraction();
+    setCurrentIndex(index);
+  };
+
+  const nextSlide = () => {
+    handleUserInteraction();
+    setCurrentIndex((prev) => (prev + 1) % askNYCSlides.length);
+  };
+
+  const prevSlide = () => {
+    handleUserInteraction();
+    setCurrentIndex((prev) => (prev - 1 + askNYCSlides.length) % askNYCSlides.length);
+  };
 
   const isFashionSlide = currentIndex === 6;
 
   return (
-    <section className="section bg-[#0A0A0A]">
+    <section id="ask-nyc-section" className="section bg-[#0A0A0A]">
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
@@ -83,7 +119,7 @@ export default function AskNYCSection() {
           <div className="order-2 lg:order-1">
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentIndex}
+                key={`${askNYCSlides[currentIndex].title}-${askNYCSlides[currentIndex].description}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
