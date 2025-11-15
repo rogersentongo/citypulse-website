@@ -1,14 +1,15 @@
 # CityPulse NYC - Marketing Website
 
-Official marketing website for CityPulse NYC - AI-powered discovery for fashion, landmarks, and culture in New York City.
+Official marketing website for CityPulse NYC - AI-powered video discovery platform for New York City.
 
 ## About CityPulse
 
-CityPulse uses cutting-edge multimodal vision AI to help people experience NYC in new ways:
+CityPulse is your AI-powered video search, sharing, and discovery platform for hyperlocal NYC content. Video-only, multimodal AI-driven, endlessly explorable.
 
-- **Fashion Trends**: Discover emerging street style trends across all five boroughs
-- **Sightseeing**: Experience iconic landmarks through fresh perspectives
-- **News & Events**: Stay ahead of what's happening in the city
+- **Pulse Feed**: Citywide collection of NYC video moments—festivals, fashion, food, news, memes, and more
+- **Friends Feed**: Share videos with friends, see what they're engaging with, user stories coming soon
+- **Ask NYC**: Natural language video search powered by multimodal AI
+- **Hyperlocal**: Borough-specific discovery from Manhattan to Staten Island
 
 ## Technology Stack
 
@@ -53,10 +54,12 @@ citypulse-website/
 │   ├── page.tsx            # Main landing page
 │   └── globals.css         # Global styles and design system
 ├── components/
-│   ├── Hero.tsx            # Hero section with carousel
-│   ├── ValueProposition.tsx
-│   ├── PrimaryUseCases.tsx # Fashion, Sightseeing, News
-│   ├── Technology.tsx      # Multimodal AI section
+│   ├── Hero.tsx               # Hero section with carousel
+│   ├── IntroSection.tsx       # What is CityPulse carousel
+│   ├── PulseFeedSection.tsx   # Pulse Feed carousel
+│   ├── FriendsFeedSection.tsx # Friends Feed carousel
+│   ├── AskNYCSection.tsx      # Ask NYC carousel with fashion
+│   ├── Technology.tsx         # Multimodal AI section
 │   ├── HowItWorks.tsx
 │   ├── About.tsx
 │   └── Footer.tsx
@@ -78,7 +81,6 @@ citypulse-website/
 
 Built by **Contrivance Inc.**
 Based in New York City
-Applying to Collaborative Fund AIR Program
 
 ## Contact
 

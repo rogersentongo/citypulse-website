@@ -1,6 +1,8 @@
 import Hero from '@/components/Hero';
-import ValueProposition from '@/components/ValueProposition';
-import PrimaryUseCases from '@/components/PrimaryUseCases';
+import IntroSection from '@/components/IntroSection';
+import PulseFeedSection from '@/components/PulseFeedSection';
+import FriendsFeedSection from '@/components/FriendsFeedSection';
+import AskNYCSection from '@/components/AskNYCSection';
 import Technology from '@/components/Technology';
 import HowItWorks from '@/components/HowItWorks';
 import About from '@/components/About';
@@ -10,8 +12,10 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
-      <ValueProposition />
-      <PrimaryUseCases />
+      <IntroSection />
+      <PulseFeedSection />
+      <FriendsFeedSection />
+      <AskNYCSection />
       <Technology />
       <HowItWorks />
       <About />

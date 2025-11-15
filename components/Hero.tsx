@@ -68,7 +68,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-white font-bold mb-6 leading-tight">
-            Your NYC, Reimagined by AI That Actually Sees
+            Discover NYC Through AI-Powered Video
           </h1>
         </motion.div>
 
@@ -78,9 +78,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl max-w-4xl mx-auto mb-12 text-gray-300"
         >
-          Discover fashion trends on city streets. Experience iconic landmarks through fresh eyes.
-          Stay ahead of news and events. All powered by multimodal AI that understands the city
-          through sight, sound, and vibe.
+          Search, share, and explore hyperlocal moments. From festivals to fashion, block parties to hidden gems—experience the city through video.
         </motion.p>
 
         <motion.div

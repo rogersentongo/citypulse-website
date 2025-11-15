@@ -81,7 +81,7 @@ export default function Technology() {
               <div className="text-4xl mb-4">📊</div>
               <h4 className="text-xl text-white mb-3 font-semibold">Semantic Search</h4>
               <p className="text-gray-400">
-                384-dimension embeddings capture style, vibe, and context
+                Semantic embeddings capture style, vibe, and context for intelligent search
               </p>
             </div>
 
@@ -95,9 +95,9 @@ export default function Technology() {
 
             <div className="glass p-6 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300">
               <div className="text-4xl mb-4">🔒</div>
-              <h4 className="text-xl text-white mb-3 font-semibold">Zero-Cost Infrastructure</h4>
+              <h4 className="text-xl text-white mb-3 font-semibold">Self-Hosted Infrastructure</h4>
               <p className="text-gray-400">
-                Fully local AI stack—technical sophistication + cost efficiency
+                Privacy-first AI stack with full control over data processing
               </p>
             </div>
           </div>

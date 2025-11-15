@@ -7,19 +7,19 @@ export default function HowItWorks() {
     {
       number: '01',
       title: 'Capture',
-      description: 'New Yorkers upload real moments—street fashion, architectural gems, breaking news, events. No editing, no filters. Just NYC as it happens.',
+      description: 'Record videos directly in the app or upload from your photos folder. Video-only—no photos allowed. Share NYC moments as they happen.',
       icon: '📹'
     },
     {
       number: '02',
       title: 'AI Understanding',
-      description: 'Our multimodal AI processes every video: transcribing audio, analyzing visual scenes (fashion, landmarks, trends), understanding context. Ready to watch in 5 seconds, fully searchable in 90.',
+      description: 'Our multimodal AI processes every video—transcribing audio, analyzing visual scenes, detecting duplicates, and creating semantic embeddings. Videos become instantly searchable and discoverable.',
       icon: '🧠'
     },
     {
       number: '03',
       title: 'Personal Discovery',
-      description: 'You explore through natural language ("street fashion in SoHo") or browse your personalized Pulse Feed. The more you use it, the better it understands whether you care about fashion, landmarks, news, or all three.',
+      description: 'Search via Ask NYC, explore the Pulse Feed or Friends Feed, and get AI recommendations. The more you use CityPulse, the better it understands your preferences—automatically remembering places, events, and content you love.',
       icon: '✨'
     }
   ];

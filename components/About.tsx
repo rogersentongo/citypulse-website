@@ -19,24 +19,24 @@ export default function About() {
           <div className="space-y-6 text-lg text-gray-300">
             <p>
               Every app treats NYC like a database—stars, reviews, categories. They miss what makes discovery magical:
-              seeing fashion emerge on street corners, understanding architectural context, feeling the pulse of
-              what's happening <span className="text-white italic">right now</span>.
+              stumbling upon a hidden jazz bar through video, seeing what a neighborhood actually feels like on a Tuesday night,
+              finding fashion inspiration on real streets.
             </p>
 
             <p>
-              With advances in multimodal AI, we can finally build something different. An app that recognizes a vintage
-              jacket trend or identifies the Flatiron Building's architectural significance—through vision, not keywords.
-              That serves New York <span className="text-white font-semibold">deeply</span>, not superficially.
+              With multimodal AI, we can finally build something different. An app that understands "cozy coffee shop" or
+              "energetic block party" through vision and sound, not keywords. That serves New York{' '}
+              <span className="text-white font-semibold">deeply</span>, not superficially.
             </p>
 
             <p>
-              CityPulse is for people who want an intimate relationship with NYC. Not 1,000 outfit ideas, but the 3
-              styles that match your aesthetic. Not every landmark, but the ones that will move you. Not all the news,
-              but what matters to your city experience.
+              CityPulse is for people who want an intimate relationship with NYC. Not 1,000 places you might go, but the 3
+              that match your vibe. Not generic recommendations, but hyperlocal video discovery that reveals the city's
+              endless possibilities.
             </p>
 
             <p className="text-white text-xl font-semibold italic text-center pt-8">
-              Depth over scale. Feeling over features. Taste over algorithms.
+              Depth over scale. Feeling over features. Video over static reviews.
             </p>
           </div>
 
@@ -50,7 +50,7 @@ export default function About() {
             <div className="glass p-8 rounded-2xl inline-block">
               <p className="text-white text-xl mb-2">Built by</p>
               <h3 className="text-3xl font-bold gradient-accent mb-4">Contrivance Inc.</h3>
-              <p className="text-gray-400">Based in NYC | Applying to Collaborative Fund AIR</p>
+              <p className="text-gray-400">Based in New York City</p>
             </div>
           </motion.div>
 

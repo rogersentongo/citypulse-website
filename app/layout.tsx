@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CityPulse NYC | AI-Powered Fashion, Sightseeing & News Discovery",
-  description: "Discover NYC through multimodal AI. Track street fashion trends, explore iconic landmarks, stay ahead of news and events—all personalized to your taste. By Contrivance Inc.",
-  keywords: ["NYC discovery", "AI fashion trends", "New York sightseeing", "NYC news", "street style", "multimodal AI", "CityPulse", "Contrivance Inc"],
+  title: "CityPulse NYC | AI-Powered Video Discovery for New York City",
+  description: "Search, share, and discover hyperlocal NYC moments through video. AI-powered video search, citywide Pulse feed, Friends feed, and social features. Record, upload, explore.",
+  keywords: ["NYC video discovery", "AI video search", "hyperlocal NYC", "New York videos", "video platform", "Pulse feed", "Ask NYC", "Contrivance Inc"],
   authors: [{ name: "Contrivance Inc." }],
   openGraph: {
-    title: "CityPulse NYC | AI-Powered Discovery for Fashion, Landmarks & Culture",
-    description: "Experience NYC through multimodal AI that understands fashion, architecture, and culture—not just keywords.",
+    title: "CityPulse NYC | AI-Powered Video Discovery Platform",
+    description: "Discover NYC through AI-powered video. Search hyperlocal moments, explore the Pulse feed, share with friends. Video-only platform for New York City.",
     url: "https://www.citypulsenyc.com",
     siteName: "CityPulse NYC",
     locale: "en_US",
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CityPulse NYC | AI-Powered NYC Discovery",
-    description: "Discover fashion trends, iconic landmarks, and breaking news through multimodal AI.",
+    title: "CityPulse NYC | Video Discovery Platform",
+    description: "AI-powered video search and discovery for hyperlocal NYC moments. Record, upload, explore.",
   },
 };
 
