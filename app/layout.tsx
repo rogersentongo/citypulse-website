@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description: "Search, share, and discover hyperlocal NYC moments through video. AI-powered video search, citywide Pulse feed, Friends feed, and social features. Record, upload, explore.",
   keywords: ["NYC video discovery", "AI video search", "hyperlocal NYC", "New York videos", "video platform", "Pulse feed", "Ask NYC", "Contrivance Inc"],
   authors: [{ name: "Contrivance Inc." }],
+  verification: {
+    google: "BenvD9oQdAs16kaquDSLGG1zOAjwCtd9iX360jjphwA",
+  },
   openGraph: {
     title: "CityPulse NYC | AI-Powered Video Discovery Platform",
     description: "Discover NYC through AI-powered video. Search hyperlocal moments, explore the Pulse feed, share with friends. Video-only platform for New York City.",
