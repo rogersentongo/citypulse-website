@@ -48,24 +48,20 @@ export default function PulseFeedSection() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="glass p-4 rounded-lg">
-                <div className="text-2xl mb-2">🤖</div>
-                <p className="text-white font-semibold mb-1">AI-Curated</p>
+              <div className="glass p-5 rounded-lg">
+                <p className="text-white font-semibold mb-2">AI-Curated</p>
                 <p className="text-sm text-gray-400">Based on your preferences</p>
               </div>
-              <div className="glass p-4 rounded-lg">
-                <div className="text-2xl mb-2">🎯</div>
-                <p className="text-white font-semibold mb-1">Duplicate Detection</p>
+              <div className="glass p-5 rounded-lg">
+                <p className="text-white font-semibold mb-2">Duplicate Detection</p>
                 <p className="text-sm text-gray-400">Cleaner feeds, better results</p>
               </div>
-              <div className="glass p-4 rounded-lg">
-                <div className="text-2xl mb-2">🗺️</div>
-                <p className="text-white font-semibold mb-1">Borough Filtering</p>
+              <div className="glass p-5 rounded-lg">
+                <p className="text-white font-semibold mb-2">Borough Filtering</p>
                 <p className="text-sm text-gray-400">Manhattan to Staten Island</p>
               </div>
-              <div className="glass p-4 rounded-lg">
-                <div className="text-2xl mb-2">🔥</div>
-                <p className="text-white font-semibold mb-1">Endless Variety</p>
+              <div className="glass p-5 rounded-lg">
+                <p className="text-white font-semibold mb-2">Endless Variety</p>
                 <p className="text-sm text-gray-400">Events, food, fashion & more</p>
               </div>
             </div>

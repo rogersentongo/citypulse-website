@@ -68,7 +68,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-white font-bold mb-6 leading-tight">
-            Discover NYC Through AI-Powered Video
+            CityPulseNYC
           </h1>
         </motion.div>
 

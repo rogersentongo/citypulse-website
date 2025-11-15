@@ -105,26 +105,21 @@ export default function AskNYCSection() {
                 animate={{ opacity: 1, height: 'auto' }}
                 className="glass p-6 rounded-xl"
               >
-                <h4 className="text-white font-semibold mb-4">Fashion Intelligence Features:</h4>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#FF1744]">👕</span>
+                <h4 className="text-white font-semibold mb-5">Fashion Intelligence Features:</h4>
+                <div className="space-y-3">
+                  <div className="border-l-2 border-[#FF1744] pl-4">
                     <p className="text-sm text-gray-300">Frame-by-frame fashion analysis</p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#FF1744]">📊</span>
+                  <div className="border-l-2 border-[#FF1744] pl-4">
                     <p className="text-sm text-gray-300">Style pattern recognition across neighborhoods</p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#FF1744]">🛍️</span>
+                  <div className="border-l-2 border-[#FF1744] pl-4">
                     <p className="text-sm text-gray-300">Shop the look integration</p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#FF1744]">🌡️</span>
+                  <div className="border-l-2 border-[#FF1744] pl-4">
                     <p className="text-sm text-gray-300">Outfit inspiration based on weather/occasion</p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-[#FF1744]">🔥</span>
+                  <div className="border-l-2 border-[#FF1744] pl-4">
                     <p className="text-sm text-gray-300">See trending styles before they hit Instagram</p>
                   </div>
                 </div>

@@ -117,17 +117,14 @@ export default function FriendsFeedSection() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="text-[#FF1744] text-xl mt-1">💬</span>
+            <div className="space-y-4">
+              <div className="glass p-4 rounded-lg">
                 <p className="text-gray-300">See what friends are liking, commenting, reposting</p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#FF1744] text-xl mt-1">📤</span>
+              <div className="glass p-4 rounded-lg">
                 <p className="text-gray-300">Share Pulse videos or your own uploads</p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#FF1744] text-xl mt-1">📖</span>
+              <div className="glass p-4 rounded-lg">
                 <p className="text-gray-300">User Stories coming soon—ephemeral sharing with your circle</p>
               </div>
             </div>

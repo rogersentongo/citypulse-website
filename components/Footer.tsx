@@ -6,7 +6,7 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h3 className="text-2xl font-bold text-white mb-2">CityPulse NYC</h3>
             <p className="text-gray-400 text-sm">
-              AI-powered discovery for fashion, landmarks & culture
+              AI-powered video search, sharing, and discovery platform for hyperlocal NYC content
             </p>
           </div>
 
