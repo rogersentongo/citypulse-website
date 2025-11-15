@@ -46,23 +46,23 @@ cd /Users/rogersentongo/Dev/citypulse-website
 vercel --prod
 ```
 
-## 🌐 Custom Domain Setup (www.citypulsenyc.com)
+## 🌐 Custom Domain Setup (www.pulse-nyc.com)
 
 After deploying to Vercel:
 
 1. Go to your Vercel project dashboard
 2. Click "Settings" → "Domains"
-3. Add domain: `citypulsenyc.com` and `www.citypulsenyc.com`
+3. Add domain: `pulse-nyc.com` and `www.pulse-nyc.com`
 4. Follow Vercel's instructions to update your DNS records:
-   - For `citypulsenyc.com`: Add A record pointing to `76.76.21.21`
-   - For `www.citypulsenyc.com`: Add CNAME record pointing to `cname.vercel-dns.com`
+   - For `pulse-nyc.com`: Add A record pointing to `76.76.21.21`
+   - For `www.pulse-nyc.com`: Add CNAME record pointing to `cname.vercel-dns.com`
 5. Wait for DNS propagation (5-60 minutes)
 6. SSL certificate will be automatically issued
 
 ## 📊 Post-Deployment
 
 ### SEO Setup
-- Submit sitemap to Google Search Console: `https://www.citypulsenyc.com/sitemap.xml`
+- Submit sitemap to Google Search Console: `https://www.pulse-nyc.com/sitemap.xml`
 - Add Google Analytics (if needed)
 
 ### Monitoring
@@ -80,24 +80,16 @@ git push
 # Vercel will auto-deploy!
 ```
 
-## 🎯 For AIR Application
+## 🎯 Product Overview
 
-When filling out the AIR application:
+**Website URL**: `https://www.pulse-nyc.com` (or `https://citypulse-website.vercel.app` before custom domain setup)
 
-**Website URL**: `https://citypulse-website.vercel.app` (or custom domain once setup)
-
-**Product Demo**:
-- Show the website first to establish credibility
-- Walk through the Fashion, Sightseeing, and News use cases
-- Emphasize multimodal AI technology section
-- Highlight mission alignment with Collaborative Fund values
-
-**Key Talking Points**:
+**Key Features**:
 1. **Multimodal Vision AI** - Computer vision that understands fashion, architecture, culture
-2. **Depth over Scale** - NYC-specific, neighborhood-level intimacy
-3. **Design-Led** - Glassy aesthetic, editorial layout, sophisticated UX
-4. **Three Core Use Cases** - Fashion, Sightseeing, News (not just another restaurant finder)
-5. **Technical Moat** - Local AI stack, zero-cost infrastructure, 2-second queries
+2. **Depth over Scale** - NYC-specific, hyperlocal video discovery
+3. **Three Core Feeds** - Pulse Feed (citywide), Friends Feed (social), Ask NYC (AI search)
+4. **Video-Only Platform** - Endless use cases from festivals to fashion, block parties to hidden gems
+5. **Technical Moat** - Self-hosted AI stack, semantic embeddings, 2-second query responses
 
 ## 📁 Project Structure
 
