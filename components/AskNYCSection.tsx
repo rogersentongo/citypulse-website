@@ -134,7 +134,7 @@ export default function AskNYCSection() {
 
           {/* Carousel */}
           <div className="order-1 lg:order-2 relative">
-            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl bg-black">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
@@ -142,13 +142,13 @@ export default function AskNYCSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 1.05 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute inset-0"
+                  className="absolute inset-0 flex items-center justify-center"
                 >
                   <Image
                     src={askNYCSlides[currentIndex].src}
                     alt={askNYCSlides[currentIndex].alt}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </motion.div>
