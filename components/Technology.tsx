@@ -39,7 +39,7 @@ export default function Technology() {
 
         {/* The Challenge */}
         <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-20">
-          <div className="glass-light p-10 rounded-2xl">
+          <div className="glass-light p-10 rounded-2xl text-center">
             <h3 className="text-2xl text-white mb-6 font-semibold">The Challenge</h3>
             <p className="text-gray-300 text-lg leading-relaxed">
               How do you search for "the perfect coffee shop" or identify "the trending jacket style"?
@@ -98,8 +98,8 @@ export default function Technology() {
         </motion.div>
 
         {/* The Result */}
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-20">
-          <div className="bg-gradient-to-r from-[#FF1744]/10 to-transparent p-10 rounded-2xl border border-[#FF1744]/30">
+        <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-20 mt-24">
+          <div className="bg-gradient-to-r from-[#FF1744]/10 to-transparent p-10 rounded-2xl border border-[#FF1744]/30 text-center">
             <h3 className="text-2xl text-white mb-6 font-semibold">The Result</h3>
             <p className="text-gray-300 text-lg leading-relaxed">
               When you ask <span className="text-white italic">"What fashion trends are happening in Brooklyn?"</span> or

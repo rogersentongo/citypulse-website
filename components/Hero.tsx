@@ -6,16 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const heroImages = [
   {
-    src: '/screenshots/street-fashion.png',
-    alt: 'Street Fashion Discovery',
-    caption: 'Discover Fashion Trends'
-  },
-  {
-    src: '/screenshots/site-seeing.png',
-    alt: 'NYC Sightseeing',
-    caption: 'Experience Iconic Landmarks'
-  },
-  {
     src: '/screenshots/ask-nyc-trending.png',
     alt: 'NYC News and Trending',
     caption: 'Stay Ahead of the Pulse'
