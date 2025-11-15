@@ -2,6 +2,8 @@
 
 Official marketing website for CityPulse NYC - AI-powered video discovery platform for New York City.
 
+**Live at:** [www.pulse-nyc.com](https://www.pulse-nyc.com)
+
 ## About CityPulse
 
 CityPulse is your AI-powered video search, sharing, and discovery platform for hyperlocal NYC content. Video-only, multimodal AI-driven, endlessly explorable.

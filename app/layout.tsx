@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CityPulse NYC | AI-Powered Video Discovery Platform",
     description: "Discover NYC through AI-powered video. Search hyperlocal moments, explore the Pulse feed, share with friends. Video-only platform for New York City.",
-    url: "https://www.citypulsenyc.com",
+    url: "https://www.pulse-nyc.com",
     siteName: "CityPulse NYC",
     locale: "en_US",
     type: "website",
