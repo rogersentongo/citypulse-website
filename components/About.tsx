@@ -35,7 +35,7 @@ export default function About() {
               endless possibilities.
             </p>
 
-            <p className="text-white text-xl font-semibold italic text-center pt-8">
+            <p className="text-white text-xl font-semibold italic text-center pt-8 pb-16">
               Depth over scale. Feeling over features. Video over static reviews.
             </p>
           </div>
@@ -45,7 +45,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-20 text-center"
+            className="mt-12 text-center"
           >
             <div className="glass p-8 rounded-2xl inline-block">
               <p className="text-white text-xl mb-2">Built by</p>

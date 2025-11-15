@@ -50,45 +50,45 @@ export default function Technology() {
         </motion.div>
 
         {/* Our Approach */}
-        <motion.div {...fadeInUp} className="mb-20">
+        <motion.div {...fadeInUp} className="mb-32">
           <h3 className="text-3xl text-white mb-12 text-center font-semibold">Our Approach</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300">
+            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
               <h4 className="text-xl text-white mb-4 font-semibold">Vision AI</h4>
               <p className="text-gray-400 leading-relaxed">
                 Frame-by-frame video analysis understanding fashion, architecture, atmospheres, and crowd patterns
               </p>
             </div>
 
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300">
+            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
               <h4 className="text-xl text-white mb-4 font-semibold">Audio Processing</h4>
               <p className="text-gray-400 leading-relaxed">
                 Transcription and ambient sound analysis using Whisper models
               </p>
             </div>
 
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300">
+            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
               <h4 className="text-xl text-white mb-4 font-semibold">Visual Scene Understanding</h4>
               <p className="text-gray-400 leading-relaxed">
                 LLaVA multimodal models that read scenes, identify clothing, recognize landmarks
               </p>
             </div>
 
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300">
+            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
               <h4 className="text-xl text-white mb-4 font-semibold">Semantic Search</h4>
               <p className="text-gray-400 leading-relaxed">
                 Semantic embeddings capture style, vibe, and context for intelligent search
               </p>
             </div>
 
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300">
+            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
               <h4 className="text-xl text-white mb-4 font-semibold">Trend Detection</h4>
               <p className="text-gray-400 leading-relaxed">
                 Temporal pattern recognition for fashion, news, and cultural shifts
               </p>
             </div>
 
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300">
+            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
               <h4 className="text-xl text-white mb-4 font-semibold">Self-Hosted Infrastructure</h4>
               <p className="text-gray-400 leading-relaxed">
                 Privacy-first AI stack with full control over data processing
