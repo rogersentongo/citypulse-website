@@ -9,11 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "form-data": "^4.0.5",
     "framer-motion": "^12.23.24",
+    "mailgun.js": "^12.1.1",
     "next": "16.0.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "sharp": "^0.34.5"
+    "react-icons": "^5.5.0",
+    "sharp": "^0.34.5",
+    "vercel": "^48.10.2",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

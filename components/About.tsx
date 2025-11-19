@@ -1,8 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import ContactModal from './ContactModal';
 
 export default function About() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const fadeInUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
@@ -63,13 +66,19 @@ export default function About() {
             <p className="text-gray-300 mb-8">
               Interested in partnering, investing, or just want to chat about NYC discovery?
             </p>
-            <a
-              href="mailto:rogersentongo@gmail.com"
+            <button
+              onClick={() => setIsContactOpen(true)}
               className="btn-primary inline-block px-8 py-4"
             >
               Contact Us
-            </a>
+            </button>
           </motion.div>
+
+          {/* Contact Modal */}
+          <ContactModal
+            isOpen={isContactOpen}
+            onClose={() => setIsContactOpen(false)}
+          />
         </motion.div>
       </div>
     </section>

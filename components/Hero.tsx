@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import WaitlistModal from './WaitlistModal';
 
 const heroImages = [
   {
@@ -14,6 +15,7 @@ const heroImages = [
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -77,13 +79,22 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
-          <button className="btn-primary px-8 py-4">
+          <button
+            onClick={() => setIsWaitlistOpen(true)}
+            className="btn-primary px-8 py-4"
+          >
             Join the Waitlist
           </button>
           <button className="btn-secondary px-8 py-4">
             Watch Demo
           </button>
         </motion.div>
+
+        {/* Waitlist Modal */}
+        <WaitlistModal
+          isOpen={isWaitlistOpen}
+          onClose={() => setIsWaitlistOpen(false)}
+        />
 
         <motion.p
           initial={{ opacity: 0 }}
