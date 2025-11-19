@@ -153,7 +153,7 @@ export default function FriendsFeedSection() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex flex-col gap-12 max-w-lg mx-auto">
+            <div className="flex flex-col gap-6 max-w-lg mx-auto">
               <div className="glass p-6 rounded-lg text-center">
                 <p className="text-gray-300">See what friends are liking, commenting, reposting</p>
               </div>
