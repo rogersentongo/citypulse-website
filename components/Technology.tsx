@@ -63,14 +63,14 @@ export default function Technology() {
             <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
               <h4 className="text-xl text-white mb-4 font-semibold">Audio Processing</h4>
               <p className="text-gray-400 leading-relaxed">
-                Transcription and ambient sound analysis using Whisper models
+                Transcription and ambient sound analysis for context-aware search
               </p>
             </div>
 
             <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
               <h4 className="text-xl text-white mb-4 font-semibold">Visual Scene Understanding</h4>
               <p className="text-gray-400 leading-relaxed">
-                LLaVA multimodal models that read scenes, identify clothing, recognize landmarks
+                Advanced multimodal AI that reads scenes, identifies clothing, and recognizes landmarks
               </p>
             </div>
 
