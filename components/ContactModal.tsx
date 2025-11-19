@@ -16,45 +16,30 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-    setErrorMessage('');
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    // Create mailto link with pre-populated data
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
+    const mailtoLink = `mailto:rogersentongo@gmail.com?subject=${subject}&body=${body}`;
 
-      const data = await response.json();
+    // Open email client
+    window.location.href = mailtoLink;
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Something went wrong');
-      }
+    // Show success message
+    setSubmitStatus('success');
+    setFormData({ name: '', email: '', subject: '', message: '' });
 
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-
-      // Close modal after 2 seconds on success
-      setTimeout(() => {
-        onClose();
-        setSubmitStatus('idle');
-      }, 2000);
-    } catch (error) {
-      setSubmitStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : 'Failed to submit. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Close modal after 2 seconds
+    setTimeout(() => {
+      onClose();
+      setSubmitStatus('idle');
+    }, 2000);
   };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -106,19 +91,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg"
               >
                 <p className="text-green-400 text-center">
-                  Message sent! We'll get back to you soon.
+                  Email client opened! Please send the email to complete your message.
                 </p>
-              </motion.div>
-            )}
-
-            {/* Error message */}
-            {submitStatus === 'error' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg"
-              >
-                <p className="text-red-400 text-center">{errorMessage}</p>
               </motion.div>
             )}
 
@@ -136,7 +110,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#FF1744] transition-colors"
                   placeholder="Your name"
-                  disabled={isSubmitting}
                 />
               </div>
 
@@ -152,7 +125,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#FF1744] transition-colors"
                   placeholder="your@email.com"
-                  disabled={isSubmitting}
                 />
               </div>
 
@@ -168,7 +140,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#FF1744] transition-colors"
                   placeholder="What's this about?"
-                  disabled={isSubmitting}
                 />
               </div>
 
@@ -184,16 +155,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   rows={4}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#FF1744] transition-colors resize-none"
                   placeholder="Your message..."
-                  disabled={isSubmitting}
                 />
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-primary w-full"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                Send Message
               </button>
             </form>
           </motion.div>
