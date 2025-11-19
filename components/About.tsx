@@ -77,7 +77,7 @@ export default function About() {
           <motion.div
             {...fadeInUp}
           >
-            <div className="bg-white/5 p-8 md:p-10 rounded-2xl border border-[#FF1744]/30 text-center backdrop-blur-sm">
+            <div className="glass p-8 md:p-10 rounded-2xl border border-[#FF1744]/30 text-center">
               <h3 className="text-2xl md:text-3xl text-white mb-4 font-bold">Get in Touch</h3>
               <p className="text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Interested in partnering, investing, or just want to chat about NYC discovery?
