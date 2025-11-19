@@ -72,31 +72,15 @@ export default function Technology() {
         <motion.div {...fadeInUp} className="text-center mb-16">
           <p className="text-sm text-[#FF1744] uppercase tracking-wider mb-4 font-semibold">Technology</p>
           <h2 className="text-white mb-6 text-4xl md:text-5xl font-bold">
-            Built Different: Multimodal AI That Sees NYC
+            Built Different: Multimodal AI That Understands NYC
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Cutting-edge computer vision that understands fashion, architecture, and culture—not just keywords
-          </p>
         </motion.div>
 
-        {/* The Challenge */}
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-16">
-          <div className="glass-light p-8 md:p-10 rounded-2xl border-l-4 border-[#FF1744]">
-            <p className="text-xs text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">The Challenge</p>
-            <h3 className="text-2xl md:text-3xl text-white mb-6 font-bold">Searching Beyond Keywords</h3>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              How do you search for "the perfect coffee shop" or identify "the trending jacket style"?
-              Not by keywords or hashtags. You're searching for visual patterns and cultural context.
-              Traditional search can't handle that. <span className="text-[#FF1744] font-semibold">Multimodal AI can.</span>
-            </p>
-          </div>
-        </motion.div>
-
+        <div className="flex flex-col gap-12 md:gap-16">
         {/* Our Approach */}
-        <motion.div {...fadeInUp} className="mb-16">
-          <div className="text-center mb-12">
-            <p className="text-sm text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">Our Approach</p>
-            <h3 className="text-3xl md:text-4xl text-white font-bold">Comprehensive AI Stack</h3>
+        <motion.div {...fadeInUp}>
+          <div className="text-center mb-16">
+            <p className="text-sm text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">Comprehensive AI Stack</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -109,7 +93,7 @@ export default function Technology() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`glass p-8 rounded-xl border transition-all duration-300 hover:border-[#FF1744]/50 hover:bg-white/5 ${
+                  className={`glass p-10 rounded-xl border transition-all duration-300 hover:border-[#FF1744]/50 hover:bg-white/5 ${
                     item.featured
                       ? 'md:col-span-1 border-l-4 border-[#FF1744] bg-gradient-to-r from-[#FF1744]/5 to-transparent'
                       : 'border-white/10'
@@ -135,25 +119,10 @@ export default function Technology() {
           </div>
         </motion.div>
 
-        {/* The Result */}
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-16">
-          <div className="bg-gradient-to-r from-[#FF1744]/10 to-transparent p-8 md:p-10 rounded-2xl border border-[#FF1744]/30 backdrop-blur-sm">
-            <p className="text-xs text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">The Result</p>
-            <h3 className="text-2xl md:text-3xl text-white mb-6 font-bold">Reality-Based Search</h3>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              When you ask <span className="text-white italic">"What fashion trends are happening in Brooklyn?"</span> or
-              <span className="text-white italic"> "What's the news on the L train?"</span>, we don't search keywords.
-              We search <span className="text-[#FF1744] font-semibold">reality</span>—analyzing actual videos through
-              computer vision, understanding fashion patterns, architectural features, and cultural moments.
-            </p>
-          </div>
-        </motion.div>
-
         {/* Performance Metrics */}
         <motion.div {...fadeInUp}>
-          <div className="text-center mb-8">
-            <p className="text-sm text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">Performance</p>
-            <h3 className="text-2xl md:text-3xl text-white font-bold">Built for Speed & Privacy</h3>
+          <div className="text-center mb-12">
+            <p className="text-sm text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">Built for Speed & Privacy</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -172,6 +141,7 @@ export default function Technology() {
             ))}
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

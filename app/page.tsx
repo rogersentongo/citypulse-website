@@ -10,16 +10,18 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen flex flex-col">
       <Hero />
       <IntroSection />
       <PulseFeedSection />
       <FriendsFeedSection />
       <AskNYCSection />
-      <Technology />
       <HowItWorks />
-      <About />
-      <Footer />
+      <div className="flex flex-col gap-24 md:gap-32">
+        <Technology />
+        <About />
+        <Footer />
+      </div>
     </main>
   );
 }
