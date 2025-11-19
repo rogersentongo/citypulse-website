@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { FaEye, FaWaveSquare, FaCamera, FaSearch, FaChartLine, FaServer } from 'react-icons/fa';
 
 export default function Technology() {
   const fadeInUp = {
@@ -10,37 +11,79 @@ export default function Technology() {
     transition: { duration: 0.6 }
   };
 
+  const approaches = [
+    {
+      icon: FaEye,
+      title: 'Vision AI',
+      description: 'Frame-by-frame video analysis understanding fashion, architecture, atmospheres, and crowd patterns',
+      featured: true
+    },
+    {
+      icon: FaCamera,
+      title: 'Visual Scene Understanding',
+      description: 'Advanced multimodal AI that reads scenes, identifies clothing, and recognizes landmarks',
+      featured: true
+    },
+    {
+      icon: FaWaveSquare,
+      title: 'Audio Processing',
+      description: 'Transcription and ambient sound analysis for context-aware search',
+      featured: false
+    },
+    {
+      icon: FaSearch,
+      title: 'Semantic Search',
+      description: 'Semantic embeddings capture style, vibe, and context for intelligent search',
+      featured: false
+    },
+    {
+      icon: FaChartLine,
+      title: 'Trend Detection',
+      description: 'Temporal pattern recognition for fashion, news, and cultural shifts',
+      featured: false
+    },
+    {
+      icon: FaServer,
+      title: 'Self-Hosted Infrastructure',
+      description: 'Privacy-first AI stack with full control over data processing',
+      featured: false
+    },
+  ];
+
   const stats = [
-    { label: '2-second query responses' },
-    { label: 'Video searchable in 90 seconds' },
-    { label: 'Frame-by-frame visual analysis' },
-    { label: 'Fashion & style detection' },
-    { label: 'Landmark & architecture recognition' },
-    { label: 'Local AI processing (privacy-first)' },
+    { value: '2s', label: 'Query Response Time' },
+    { value: '90s', label: 'Video Processing' },
+    { value: '100%', label: 'Frame Analysis' },
+    { value: 'Real-time', label: 'Fashion Detection' },
+    { value: 'Local', label: 'AI Processing' },
+    { value: 'Private', label: 'Data Control' },
   ];
 
   return (
-    <section className="section bg-[#0A0A0A] relative overflow-hidden">
+    <section className="py-24 bg-[#0A0A0A] relative overflow-hidden">
       {/* Background grid effect */}
-      <div className="absolute inset-0 opacity-10" style={{
+      <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: 'linear-gradient(#FF1744 1px, transparent 1px), linear-gradient(90deg, #FF1744 1px, transparent 1px)',
         backgroundSize: '50px 50px'
       }}></div>
 
       <div className="container-custom relative z-10">
+        {/* Header */}
         <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-white mb-6">
+          <p className="text-sm text-[#FF1744] uppercase tracking-wider mb-4 font-semibold">Technology</p>
+          <h2 className="text-white mb-6 text-4xl md:text-5xl font-bold">
             Built Different: Multimodal AI That Sees NYC
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Cutting-edge computer vision that understands fashion, architecture, and culture—not just keywords
           </p>
         </motion.div>
 
         {/* The Challenge */}
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-20">
-          <div className="glass-light p-10 rounded-2xl text-center">
-            <h3 className="text-2xl text-white mb-6 font-semibold">The Challenge</h3>
+        <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-16">
+          <div className="glass-light p-8 md:p-10 rounded-2xl border-l-4 border-[#FF1744]">
+            <p className="text-xs text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">The Challenge</p>
+            <h3 className="text-2xl md:text-3xl text-white mb-6 font-bold">Searching Beyond Keywords</h3>
             <p className="text-gray-300 text-lg leading-relaxed">
               How do you search for "the perfect coffee shop" or identify "the trending jacket style"?
               Not by keywords or hashtags. You're searching for visual patterns and cultural context.
@@ -50,57 +93,53 @@ export default function Technology() {
         </motion.div>
 
         {/* Our Approach */}
-        <motion.div {...fadeInUp} className="mb-32">
-          <h3 className="text-3xl text-white mb-12 text-center font-semibold">Our Approach</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
-              <h4 className="text-xl text-white mb-4 font-semibold">Vision AI</h4>
-              <p className="text-gray-400 leading-relaxed">
-                Frame-by-frame video analysis understanding fashion, architecture, atmospheres, and crowd patterns
-              </p>
-            </div>
+        <motion.div {...fadeInUp} className="mb-16">
+          <div className="text-center mb-12">
+            <p className="text-sm text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">Our Approach</p>
+            <h3 className="text-3xl md:text-4xl text-white font-bold">Comprehensive AI Stack</h3>
+          </div>
 
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
-              <h4 className="text-xl text-white mb-4 font-semibold">Audio Processing</h4>
-              <p className="text-gray-400 leading-relaxed">
-                Transcription and ambient sound analysis for context-aware search
-              </p>
-            </div>
-
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
-              <h4 className="text-xl text-white mb-4 font-semibold">Visual Scene Understanding</h4>
-              <p className="text-gray-400 leading-relaxed">
-                Advanced multimodal AI that reads scenes, identifies clothing, and recognizes landmarks
-              </p>
-            </div>
-
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
-              <h4 className="text-xl text-white mb-4 font-semibold">Semantic Search</h4>
-              <p className="text-gray-400 leading-relaxed">
-                Semantic embeddings capture style, vibe, and context for intelligent search
-              </p>
-            </div>
-
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
-              <h4 className="text-xl text-white mb-4 font-semibold">Trend Detection</h4>
-              <p className="text-gray-400 leading-relaxed">
-                Temporal pattern recognition for fashion, news, and cultural shifts
-              </p>
-            </div>
-
-            <div className="glass p-8 rounded-xl hover:border-[#FF1744]/50 transition-all duration-300 text-center">
-              <h4 className="text-xl text-white mb-4 font-semibold">Self-Hosted Infrastructure</h4>
-              <p className="text-gray-400 leading-relaxed">
-                Privacy-first AI stack with full control over data processing
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {approaches.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`glass p-8 rounded-xl border transition-all duration-300 hover:border-[#FF1744]/50 hover:bg-white/5 ${
+                    item.featured
+                      ? 'md:col-span-1 border-l-4 border-[#FF1744] bg-gradient-to-r from-[#FF1744]/5 to-transparent'
+                      : 'border-white/10'
+                  }`}
+                  style={{ willChange: 'transform' }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+                        item.featured ? 'bg-[#FF1744]/20' : 'bg-white/10'
+                      }`}>
+                        <Icon className={`text-2xl ${item.featured ? 'text-[#FF1744]' : 'text-gray-300'}`} />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-xl text-white mb-3 font-semibold">{item.title}</h4>
+                      <p className="text-gray-400 leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
 
         {/* The Result */}
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-20 mt-24">
-          <div className="bg-gradient-to-r from-[#FF1744]/10 to-transparent p-10 rounded-2xl border border-[#FF1744]/30 text-center">
-            <h3 className="text-2xl text-white mb-6 font-semibold">The Result</h3>
+        <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-16">
+          <div className="bg-gradient-to-r from-[#FF1744]/10 to-transparent p-8 md:p-10 rounded-2xl border border-[#FF1744]/30 backdrop-blur-sm">
+            <p className="text-xs text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">The Result</p>
+            <h3 className="text-2xl md:text-3xl text-white mb-6 font-bold">Reality-Based Search</h3>
             <p className="text-gray-300 text-lg leading-relaxed">
               When you ask <span className="text-white italic">"What fashion trends are happening in Brooklyn?"</span> or
               <span className="text-white italic"> "What's the news on the L train?"</span>, we don't search keywords.
@@ -110,20 +149,25 @@ export default function Technology() {
           </div>
         </motion.div>
 
-        {/* Technical Stats */}
+        {/* Performance Metrics */}
         <motion.div {...fadeInUp}>
-          <h3 className="text-xl text-center text-gray-400 mb-12 uppercase tracking-wider">Performance Metrics</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="text-center mb-8">
+            <p className="text-sm text-[#FF1744] uppercase tracking-wider mb-3 font-semibold">Performance</p>
+            <h3 className="text-2xl md:text-3xl text-white font-bold">Built for Speed & Privacy</h3>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center p-6 glass-light rounded-xl"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="text-center p-6 glass-light rounded-xl border border-white/10 hover:border-[#FF1744]/30 transition-all duration-300"
               >
-                <p className="text-sm text-gray-300 leading-relaxed">{stat.label}</p>
+                <p className="text-3xl font-bold text-[#FF1744] mb-2">{stat.value}</p>
+                <p className="text-sm text-gray-400 leading-relaxed">{stat.label}</p>
               </motion.div>
             ))}
           </div>
