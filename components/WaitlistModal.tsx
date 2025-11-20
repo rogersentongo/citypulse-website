@@ -25,7 +25,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message || '(No message provided)'}`
     );
-    const mailtoLink = `mailto:rogersentongo@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:info@pulse-nyc.com?subject=${subject}&body=${body}`;
 
     // Open email client
     window.location.href = mailtoLink;
