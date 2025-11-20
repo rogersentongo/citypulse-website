@@ -26,7 +26,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
     );
-    const mailtoLink = `mailto:info@pulse-nyc.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:rogersentongo@pulse-nyc.com?subject=${subject}&body=${body}`;
 
     // Open email client
     window.location.href = mailtoLink;
