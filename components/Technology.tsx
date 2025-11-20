@@ -62,7 +62,7 @@ export default function Technology() {
   return (
     <section className="py-24 bg-[#0A0A0A] relative overflow-hidden">
       {/* Background grid effect */}
-      <div className="absolute inset-0 opacity-5" style={{
+      <div className="absolute inset-0 opacity-20" style={{
         backgroundImage: 'linear-gradient(#FF1744 1px, transparent 1px), linear-gradient(90deg, #FF1744 1px, transparent 1px)',
         backgroundSize: '50px 50px'
       }}></div>
