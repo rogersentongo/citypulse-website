@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import WaitlistModal from './WaitlistModal';
+import DemoVideoModal from './DemoVideoModal';
 
 const heroImages = [
   {
@@ -16,6 +17,7 @@ const heroImages = [
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -85,7 +87,10 @@ export default function Hero() {
           >
             Join the Waitlist
           </button>
-          <button className="btn-secondary px-8 py-4">
+          <button
+            onClick={() => setIsDemoOpen(true)}
+            className="btn-secondary px-8 py-4"
+          >
             Watch Demo
           </button>
         </motion.div>
@@ -94,6 +99,12 @@ export default function Hero() {
         <WaitlistModal
           isOpen={isWaitlistOpen}
           onClose={() => setIsWaitlistOpen(false)}
+        />
+
+        {/* Demo Video Modal */}
+        <DemoVideoModal
+          isOpen={isDemoOpen}
+          onClose={() => setIsDemoOpen(false)}
         />
 
         <motion.p
