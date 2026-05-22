@@ -4,49 +4,62 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const askNYCSlides = [
+const askDefault =
+  'Ask about gatherings, events, vibes in specific neighborhoods, professional content, where to eat — and get video results that match. Our multimodal AI understands context, visual scenes, and audio to surface the most relevant moments.';
+
+const askSlides = [
   {
     src: '/screenshots/ask-nyc/ask-nyc-main.png',
-    alt: 'Ask NYC Main Page',
-    title: 'Ask NYC Anything',
-    description: "Search using natural language, explore recommended videos, check trending topics, or browse curated Pulse feeds. Whether you're looking for 'comedy tonight' or 'best brunch in Brooklyn,' our AI finds relevant video results."
+    alt: 'Ask the City main page',
+    title: 'Ask your city anything',
+    description:
+      "Search using natural language, explore recommended videos, check trending topics, or browse curated Pulse feeds. Whether you're looking for 'comedy tonight' or 'best brunch nearby,' our AI finds relevant video results.",
   },
   {
     src: '/screenshots/ask-nyc/gatherings.png',
-    alt: 'Cool Gatherings Results',
-    title: 'AI-Powered Video Search',
-    description: "Ask about gatherings, events, vibes in specific boroughs, professional content, where to eat—and get video results that match. Our multimodal AI understands context, visual scenes, and audio to surface the most relevant moments."
+    alt: 'Gatherings results',
+    title: 'AI-powered video search',
+    description: askDefault,
   },
   {
     src: '/screenshots/ask-nyc/lunch-results.png',
-    alt: 'Lunch Search Results',
-    title: 'AI-Powered Video Search',
-    description: "Ask about gatherings, events, vibes in specific boroughs, professional content, where to eat—and get video results that match. Our multimodal AI understands context, visual scenes, and audio to surface the most relevant moments."
+    alt: 'Lunch search results',
+    title: 'AI-powered video search',
+    description: askDefault,
   },
   {
     src: '/screenshots/ask-nyc/vibe-manhattan.png',
-    alt: 'Vibe in Manhattan',
-    title: 'AI-Powered Video Search',
-    description: "Ask about gatherings, events, vibes in specific boroughs, professional content, where to eat—and get video results that match. Our multimodal AI understands context, visual scenes, and audio to surface the most relevant moments."
+    alt: 'Neighborhood vibe video',
+    title: 'AI-powered video search',
+    description: askDefault,
   },
   {
     src: '/screenshots/ask-nyc/vibe-queens.png',
-    alt: 'Vibe in Queens',
-    title: 'AI-Powered Video Search',
-    description: "Ask about gatherings, events, vibes in specific boroughs, professional content, where to eat—and get video results that match. Our multimodal AI understands context, visual scenes, and audio to surface the most relevant moments."
+    alt: 'Neighborhood vibe video',
+    title: 'AI-powered video search',
+    description: askDefault,
   },
   {
     src: '/screenshots/ask-nyc/corporate-event.png',
-    alt: 'Corporate Event Video',
-    title: 'AI-Powered Video Search',
-    description: "Ask about gatherings, events, vibes in specific boroughs, professional content, where to eat—and get video results that match. Our multimodal AI understands context, visual scenes, and audio to surface the most relevant moments."
+    alt: 'Corporate event video',
+    title: 'AI-powered video search',
+    description: askDefault,
   },
   {
     src: '/screenshots/ask-nyc/street-fashion.png',
-    alt: 'Street Fashion Discovery',
-    title: 'Discover Fashion Trends',
-    description: "Our computer vision analyzes what people are wearing in thousands of videos across NYC. See emerging street styles in Williamsburg, SoHo, or the Lower East Side. Identify trending pieces—jackets, accessories, sneakers—and even shop the look. Our AI detects clothing patterns, styles, and fashion-forward neighborhoods in real-time."
-  }
+    alt: 'Street fashion discovery',
+    title: 'Discover fashion trends',
+    description:
+      'Our computer vision analyzes what people are wearing in thousands of videos across the city. See emerging street styles in trendy neighborhoods and creative districts. Identify trending pieces — jackets, accessories, sneakers — and even shop the look. Our AI detects clothing patterns, styles, and fashion-forward neighborhoods in real-time.',
+  },
+];
+
+const fashionFeatures = [
+  'Frame-by-frame fashion analysis',
+  'Style pattern recognition across neighborhoods',
+  'Shop the look integration',
+  'Outfit inspiration based on weather / occasion',
+  'See trending styles before they hit Instagram',
 ];
 
 export default function AskNYCSection() {
@@ -55,165 +68,146 @@ export default function AskNYCSection() {
 
   useEffect(() => {
     if (isPaused) return;
-
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % askNYCSlides.length);
-    }, 8000); // Increased from 5000ms to 8000ms
+      setCurrentIndex((prev) => (prev + 1) % askSlides.length);
+    }, 8000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  // Reset pause when section leaves viewport
   useEffect(() => {
-    const section = document.getElementById('ask-nyc-section');
+    const section = document.getElementById('ask-section');
     if (!section) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) {
-          setIsPaused(false);
-        }
+        if (!entry.isIntersecting) setIsPaused(false);
       },
       { threshold: 0 }
     );
-
     observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
-  const handleUserInteraction = () => {
-    setIsPaused(true);
-  };
-
   const goToSlide = (index: number) => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex(index);
   };
-
   const nextSlide = () => {
-    handleUserInteraction();
-    setCurrentIndex((prev) => (prev + 1) % askNYCSlides.length);
+    setIsPaused(true);
+    setCurrentIndex((prev) => (prev + 1) % askSlides.length);
   };
-
   const prevSlide = () => {
-    handleUserInteraction();
-    setCurrentIndex((prev) => (prev - 1 + askNYCSlides.length) % askNYCSlides.length);
+    setIsPaused(true);
+    setCurrentIndex((prev) => (prev - 1 + askSlides.length) % askSlides.length);
   };
 
-  const isFashionSlide = currentIndex === 6;
+  const slide = askSlides[currentIndex];
+  const isFashionSlide = currentIndex === askSlides.length - 1;
 
   return (
-    <section id="ask-nyc-section" className="section bg-[#0A0A0A]">
+    <section id="ask-section" className="section section-panel">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center text-white mb-16"
+          className="max-w-[640px] mx-auto mb-16 text-center"
         >
-          Ask NYC Feature
-        </motion.h2>
+          <div className="eyebrow mb-5">AI Search</div>
+          <h2 className="gradient-heading">Ask the City</h2>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Description */}
-          <div className="order-2 lg:order-1">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${askNYCSlides[currentIndex].title}-${askNYCSlides[currentIndex].description}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-              >
-                <h3 className="text-2xl md:text-3xl text-white font-bold mb-6">
-                  {askNYCSlides[currentIndex].title}
-                </h3>
-                <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
-                  {askNYCSlides[currentIndex].description}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Fashion Features (only show on fashion slide) */}
-            {isFashionSlide && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                className="glass p-8 rounded-xl max-w-2xl mx-auto"
-              >
-                <h4 className="text-white font-semibold mb-8 text-center">Fashion Intelligence Features:</h4>
-                <div className="space-y-5">
-                  <div className="text-center">
-                    <p className="text-sm text-gray-300">Frame-by-frame fashion analysis</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-sm text-gray-300">Style pattern recognition across neighborhoods</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-sm text-gray-300">Shop the look integration</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-sm text-gray-300">Outfit inspiration based on weather/occasion</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-sm text-gray-300">See trending styles before they hit Instagram</p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </div>
-
+        {/* Feature row (reverse) */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid lg:grid-cols-2 gap-12 lg:gap-[72px] items-center"
+        >
           {/* Carousel */}
-          <div className="order-1 lg:order-2 relative">
-            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl bg-black">
+          <div className="carousel-shell relative lg:order-2">
+            <div className="frame-glow" />
+            <div className="frame h-[clamp(440px,58vw,600px)]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.05 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex items-center justify-center"
+                  exit={{ opacity: 0, scale: 1.04 }}
+                  transition={{ duration: 0.45 }}
+                  className="absolute inset-0"
                 >
                   <Image
-                    src={askNYCSlides[currentIndex].src}
-                    alt={askNYCSlides[currentIndex].alt}
+                    src={slide.src}
+                    alt={slide.alt}
                     fill
                     className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </motion.div>
               </AnimatePresence>
+            </div>
 
-              {/* Navigation */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-              >
-                ←
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-              >
-                →
-              </button>
+            <button onClick={prevSlide} className="nav-arrow left-3.5" aria-label="Previous slide">
+              ‹
+            </button>
+            <button onClick={nextSlide} className="nav-arrow right-3.5" aria-label="Next slide">
+              ›
+            </button>
 
-              {/* Indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                {askNYCSlides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentIndex ? 'bg-[#FF1744] w-6' : 'bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
+            <div className="flex gap-1.5 justify-center mt-5 flex-wrap">
+              {askSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
-        </div>
+
+          {/* Text */}
+          <div className="lg:order-1">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.35 }}
+              >
+                <h3 className="text-white mb-4">{slide.title}</h3>
+                <p className="text-[1.06rem] text-[var(--fg-2)] leading-relaxed">
+                  {slide.description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+
+            {isFashionSlide && (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="mt-6 bg-[var(--card)] border border-[var(--border)] border-l-2 border-l-[var(--accent)] rounded-[11px] px-6 py-5"
+              >
+                <h4 className="subhead mb-3.5">Fashion Intelligence Features</h4>
+                <ul className="flex flex-col">
+                  {fashionFeatures.map((f) => (
+                    <li
+                      key={f}
+                      className="relative pl-5 py-1.5 text-[0.92rem] text-[var(--fg-2)] before:content-['→'] before:absolute before:left-0 before:text-[var(--accent)]"
+                    >
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -5,10 +5,17 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const pulseSlides = [
-  { src: '/screenshots/pulse-feed/block-party.png', alt: 'Block Party in NYC' },
-  { src: '/screenshots/pulse-feed/comedy-club.png', alt: 'Comedy Club Show' },
-  { src: '/screenshots/pulse-feed/dragon-parade.png', alt: 'Dragon Float Parade in Manhattan' },
-  { src: '/screenshots/pulse-feed/food-pulse.png', alt: 'Food on the Pulse Feed' }
+  { src: '/screenshots/pulse-feed/block-party.png', alt: 'Block party' },
+  { src: '/screenshots/pulse-feed/comedy-club.png', alt: 'Comedy club show' },
+  { src: '/screenshots/pulse-feed/dragon-parade.png', alt: 'Dragon float parade' },
+  { src: '/screenshots/pulse-feed/food-pulse.png', alt: 'Food on the Pulse Feed' },
+];
+
+const features = [
+  { title: 'AI-Curated', sub: 'Based on your preferences' },
+  { title: 'Duplicate Detection', sub: 'Cleaner feeds, better results' },
+  { title: 'Neighborhood Filtering', sub: 'From downtown to the suburbs' },
+  { title: 'Endless Variety', sub: 'Events, food, fashion & more' },
 ];
 
 export default function PulseFeedSection() {
@@ -17,103 +24,73 @@ export default function PulseFeedSection() {
 
   useEffect(() => {
     if (isPaused) return;
-
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % pulseSlides.length);
-    }, 8000); // Increased from 5000ms to 8000ms
+    }, 8000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  // Reset pause when section leaves viewport
   useEffect(() => {
     const section = document.getElementById('pulse-feed-section');
     if (!section) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) {
-          setIsPaused(false);
-        }
+        if (!entry.isIntersecting) setIsPaused(false);
       },
       { threshold: 0 }
     );
-
     observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
-  const handleUserInteraction = () => {
-    setIsPaused(true);
-  };
-
   const goToSlide = (index: number) => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex(index);
   };
-
   const nextSlide = () => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex((prev) => (prev + 1) % pulseSlides.length);
   };
-
   const prevSlide = () => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex((prev) => (prev - 1 + pulseSlides.length) % pulseSlides.length);
   };
 
   return (
-    <section id="pulse-feed-section" className="section bg-[#0A0A0A]">
+    <section id="pulse-feed-section" className="section section-panel">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center text-white mb-16"
+          className="max-w-[640px] mx-auto mb-16 text-center"
         >
-          The Pulse Feed
-        </motion.h2>
+          <div className="eyebrow mb-5">Discovery</div>
+          <h2 className="gradient-heading">The Pulse Feed</h2>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Description */}
-          <div className="order-2 lg:order-1">
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
-              The Pulse Feed is a citywide collection of NYC video moments. Festivals, bars, restaurants, fashion sightings,
-              block parties, funny memes, news, gossip, discussions—the possibilities are endless. Browse by borough, discover
-              based on your preferences, and explore what's trending across the city.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
-              <div className="glass p-7 rounded-lg text-center">
-                <p className="text-white font-semibold mb-2">AI-Curated</p>
-                <p className="text-sm text-gray-400">Based on your preferences</p>
-              </div>
-              <div className="glass p-7 rounded-lg text-center">
-                <p className="text-white font-semibold mb-2">Duplicate Detection</p>
-                <p className="text-sm text-gray-400">Cleaner feeds, better results</p>
-              </div>
-              <div className="glass p-7 rounded-lg text-center">
-                <p className="text-white font-semibold mb-2">Borough Filtering</p>
-                <p className="text-sm text-gray-400">Manhattan to Staten Island</p>
-              </div>
-              <div className="glass p-7 rounded-lg text-center">
-                <p className="text-white font-semibold mb-2">Endless Variety</p>
-                <p className="text-sm text-gray-400">Events, food, fashion & more</p>
-              </div>
-            </div>
-          </div>
-
+        {/* Feature row (reverse) */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid lg:grid-cols-2 gap-12 lg:gap-[72px] items-center"
+        >
           {/* Carousel */}
-          <div className="order-1 lg:order-2 relative">
-            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl bg-black">
+          <div className="carousel-shell relative lg:order-2">
+            <div className="frame-glow" />
+            <div className="frame h-[clamp(440px,58vw,600px)]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
-                  initial={{ opacity: 0, scale: 1.05 }}
+                  initial={{ opacity: 0, scale: 1.04 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex items-center justify-center"
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.45 }}
+                  className="absolute inset-0"
                 >
                   <Image
                     src={pulseSlides[currentIndex].src}
@@ -124,36 +101,50 @@ export default function PulseFeedSection() {
                   />
                 </motion.div>
               </AnimatePresence>
+            </div>
 
-              {/* Navigation */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-              >
-                ←
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-              >
-                →
-              </button>
+            <button onClick={prevSlide} className="nav-arrow left-3.5" aria-label="Previous slide">
+              ‹
+            </button>
+            <button onClick={nextSlide} className="nav-arrow right-3.5" aria-label="Next slide">
+              ›
+            </button>
 
-              {/* Indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                {pulseSlides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentIndex ? 'bg-[#FF1744] w-6' : 'bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
+            <div className="flex gap-1.5 justify-center mt-5">
+              {pulseSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
-        </div>
+
+          {/* Text */}
+          <div className="lg:order-1">
+            <h3 className="text-white mb-4">The whole city, one feed</h3>
+            <p className="text-[1.06rem] text-[var(--fg-2)] leading-relaxed">
+              The Pulse Feed is a citywide collection of local video moments. Festivals, bars,
+              restaurants, fashion sightings, block parties, funny memes, news, gossip,
+              discussions — the possibilities are endless. Browse by neighborhood, discover based
+              on your preferences, and explore what&apos;s trending across the city.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
+              {features.map((f) => (
+                <div key={f.title} className="mini-card">
+                  <p className="font-semibold text-[0.98rem] flex items-center gap-2.5 text-white">
+                    <span className="w-[5px] h-[5px] rounded-full bg-[var(--accent)] flex-none" />
+                    {f.title}
+                  </p>
+                  <p className="text-[0.88rem] text-[var(--fg-3)] mt-1.5 pl-[14px]">{f.sub}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -7,19 +7,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 const friendsSlides = [
   {
     src: '/screenshots/friends-feed/friends-pool-table.png',
-    alt: 'Friends socializing at pool table',
-    description: "Share videos with friends and see what they're engaging with. View what your friends are liking, commenting on, and reposting from the Pulse. Share your favorite finds or your own uploads. User Stories are coming soon—share ephemeral moments with your circle."
+    alt: 'Friends socializing',
+    description:
+      "Share videos with friends and see what they're engaging with. View what your friends are liking, commenting on, and reposting from the Pulse. Share your favorite finds or your own uploads. User Stories are coming soon — share ephemeral moments with your circle.",
   },
   {
     src: '/screenshots/friends-feed/user-stories-prototype.png',
-    alt: 'User Stories Prototype',
-    description: "Share videos with friends and see what they're engaging with. View what your friends are liking, commenting on, and reposting from the Pulse. Share your favorite finds or your own uploads. User Stories are coming soon—share ephemeral moments with your circle."
+    alt: 'User Stories prototype',
+    description:
+      "Share videos with friends and see what they're engaging with. View what your friends are liking, commenting on, and reposting from the Pulse. Share your favorite finds or your own uploads. User Stories are coming soon — share ephemeral moments with your circle.",
   },
   {
     src: '/screenshots/friends-feed/tall-bike-meme.png',
-    alt: 'Entertaining tall bike video',
-    description: "Share entertaining clips and memes. Found a funny NYC sighting? A street performer? A viral moment? Share it with friends or post to the Pulse for the whole city to discover."
-  }
+    alt: 'Entertaining clip',
+    description:
+      'Share entertaining clips and memes. Found a funny city sighting? A street performer? A viral moment? Share it with friends or post to the Pulse for the whole city to discover.',
+  },
+];
+
+const highlights = [
+  'See what friends are liking, commenting, reposting',
+  'Share Pulse videos or your own uploads',
+  'User Stories coming soon — ephemeral sharing with your circle',
 ];
 
 export default function FriendsFeedSection() {
@@ -28,144 +37,134 @@ export default function FriendsFeedSection() {
 
   useEffect(() => {
     if (isPaused) return;
-
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % friendsSlides.length);
-    }, 8000); // Increased from 5000ms to 8000ms
+    }, 8000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  // Reset pause when section leaves viewport
   useEffect(() => {
     const section = document.getElementById('friends-feed-section');
     if (!section) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) {
-          setIsPaused(false);
-        }
+        if (!entry.isIntersecting) setIsPaused(false);
       },
       { threshold: 0 }
     );
-
     observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
-  const handleUserInteraction = () => {
-    setIsPaused(true);
-  };
-
   const goToSlide = (index: number) => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex(index);
   };
-
   const nextSlide = () => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex((prev) => (prev + 1) % friendsSlides.length);
   };
-
   const prevSlide = () => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex((prev) => (prev - 1 + friendsSlides.length) % friendsSlides.length);
   };
 
+  const slide = friendsSlides[currentIndex];
+
   return (
-    <section id="friends-feed-section" className="section bg-black">
+    <section id="friends-feed-section" className="section">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center text-white mb-16"
+          className="max-w-[640px] mx-auto mb-16 text-center"
         >
-          Friends Feed & Stories
-        </motion.h2>
+          <div className="eyebrow mb-5">Social</div>
+          <h2 className="gradient-heading">Friends Feed &amp; Stories</h2>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Feature row */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid lg:grid-cols-2 gap-12 lg:gap-[72px] items-center"
+        >
           {/* Carousel */}
-          <div className="relative">
-            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl bg-black">
+          <div className="carousel-shell relative">
+            <div className="frame-glow" />
+            <div className="frame h-[clamp(440px,58vw,600px)]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -50 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex items-center justify-center"
+                  transition={{ duration: 0.45 }}
+                  className="absolute inset-0"
                 >
                   <Image
-                    src={friendsSlides[currentIndex].src}
-                    alt={friendsSlides[currentIndex].alt}
+                    src={slide.src}
+                    alt={slide.alt}
                     fill
                     className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </motion.div>
               </AnimatePresence>
+            </div>
 
-              {/* Navigation */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-              >
-                ←
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-              >
-                →
-              </button>
+            <button onClick={prevSlide} className="nav-arrow left-3.5" aria-label="Previous slide">
+              ‹
+            </button>
+            <button onClick={nextSlide} className="nav-arrow right-3.5" aria-label="Next slide">
+              ›
+            </button>
 
-              {/* Indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                {friendsSlides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentIndex ? 'bg-[#FF1744] w-6' : 'bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
+            <div className="flex gap-1.5 justify-center mt-5">
+              {friendsSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Description */}
+          {/* Text */}
           <div>
+            <h3 className="text-white mb-4">Share with your circle</h3>
             <AnimatePresence mode="wait">
-              <motion.div
-                key={friendsSlides[currentIndex].description}
-                initial={{ opacity: 0, y: 20 }}
+              <motion.p
+                key={currentIndex}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.35 }}
+                className="text-[1.06rem] text-[var(--fg-2)] leading-relaxed"
               >
-                <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
-                  {friendsSlides[currentIndex].description}
-                </p>
-              </motion.div>
+                {slide.description}
+              </motion.p>
             </AnimatePresence>
 
-            <div className="flex flex-col gap-6 max-w-lg mx-auto">
-              <div className="glass p-6 rounded-lg text-center">
-                <p className="text-gray-300">See what friends are liking, commenting, reposting</p>
-              </div>
-              <div className="glass p-6 rounded-lg text-center">
-                <p className="text-gray-300">Share Pulse videos or your own uploads</p>
-              </div>
-              <div className="glass p-6 rounded-lg text-center">
-                <p className="text-gray-300">User Stories coming soon—ephemeral sharing with your circle</p>
-              </div>
+            <div className="flex flex-col gap-3 mt-8">
+              {highlights.map((h) => (
+                <div key={h} className="mini-card">
+                  <p className="font-medium text-[0.96rem] flex items-center gap-2.5 text-[var(--fg-2)]">
+                    <span className="w-[5px] h-[5px] rounded-full bg-[var(--accent)] flex-none" />
+                    {h}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

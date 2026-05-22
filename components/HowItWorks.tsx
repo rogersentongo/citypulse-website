@@ -2,55 +2,57 @@
 
 import { motion } from 'framer-motion';
 
-export default function HowItWorks() {
-  const steps = [
-    {
-      number: '01',
-      title: 'Capture',
-      description: 'Record videos directly in the app or upload from your photos folder. Video-only—no photos allowed. Share NYC moments as they happen.'
-    },
-    {
-      number: '02',
-      title: 'AI Understanding',
-      description: 'Our multimodal AI processes every video—transcribing audio, analyzing visual scenes, detecting duplicates, and creating semantic embeddings. Videos become instantly searchable and discoverable.'
-    },
-    {
-      number: '03',
-      title: 'Personal Discovery',
-      description: 'Search via Ask NYC, explore the Pulse Feed or Friends Feed, and get AI recommendations. The more you use CityPulse, the better it understands your preferences—automatically remembering places, events, and content you love.'
-    }
-  ];
+const steps = [
+  {
+    number: '01',
+    title: 'Capture',
+    description:
+      'Record videos directly in the app or upload from your photos folder. Video-only — no photos allowed. Share local moments as they happen.',
+  },
+  {
+    number: '02',
+    title: 'AI Understanding',
+    description:
+      'Our multimodal AI processes every video — transcribing audio, analyzing visual scenes, detecting duplicates, and creating semantic embeddings. Videos become instantly searchable and discoverable.',
+  },
+  {
+    number: '03',
+    title: 'Personal Discovery',
+    description:
+      'Search via Ask the City, explore the Pulse Feed or Friends Feed, and get AI recommendations. The more you use CityPulse, the better it understands your preferences — automatically remembering places, events, and content you love.',
+  },
+];
 
+export default function HowItWorks() {
   return (
-    <section className="section bg-[#0A0A0A]">
+    <section id="how-it-works" className="section">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center text-white mb-20"
+          className="max-w-[640px] mx-auto mb-16 text-center"
         >
-          How It Works
-        </motion.h2>
+          <div className="eyebrow mb-5">Process</div>
+          <h2 className="gradient-heading">How It Works</h2>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid md:grid-cols-3 gap-5">
           {steps.map((step, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
+              key={step.number}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="text-center"
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className="card p-8 hover:-translate-y-1"
             >
-              <div className="mb-6">
-                <span className="text-[#FF1744] text-6xl font-bold">{step.number}</span>
-              </div>
-              <h3 className="text-2xl text-white font-bold mb-6">{step.title}</h3>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                {step.description}
-              </p>
+              <span className="inline-block font-mono text-[0.82rem] text-[var(--accent)] bg-[var(--accent-soft)] border border-[var(--accent-soft)] px-2.5 py-1 rounded-md">
+                {step.number}
+              </span>
+              <h3 className="text-[1.3rem] text-white mt-5 mb-2.5">{step.title}</h3>
+              <p className="text-[0.96rem] text-[var(--fg-2)] leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
         </div>

@@ -7,40 +7,46 @@ import { motion, AnimatePresence } from 'framer-motion';
 const introSlides = [
   {
     src: '/screenshots/intro/borough-picker.png',
-    alt: 'Borough Picker UI',
-    description: "CityPulse is your AI-powered video discovery platform for New York City. Record or upload videos to share NYC moments. Search through thousands of videos using natural language. Discover what's happening in your neighborhood—festivals, restaurants, fashion, entertainment, and more. Video-only, hyperlocal, endlessly explorable.",
-    additionalText: "Choose your borough—Manhattan, Brooklyn, Queens, Bronx, Staten Island—and dive into neighborhood-specific content."
+    alt: 'Neighborhood picker',
+    description:
+      "CityPulse is your AI-powered video discovery platform for the city around you. Record or upload videos to share local moments. Search through thousands of videos using natural language. Discover what's happening in your neighborhood — festivals, restaurants, fashion, entertainment, and more. Video-only, hyperlocal, endlessly explorable.",
+    additionalText: 'Choose your neighborhood and dive into area-specific content.',
   },
   {
     src: '/screenshots/intro/bar-vibe.png',
-    alt: 'Bar Ambiance',
-    description: "Get a feel for a place before you go. See what bars, restaurants, and venues look like on specific days and times. Does it match your vibe? Watch videos from other visitors to find out.",
-    additionalText: ""
+    alt: 'Bar ambiance',
+    description:
+      'Get a feel for a place before you go. See what bars, restaurants, and venues look like on specific days and times. Does it match your vibe? Watch videos from other visitors to find out.',
+    additionalText: '',
   },
   {
     src: '/screenshots/intro/rooftop-bar.png',
-    alt: 'Rooftop Bar at Night',
-    description: "Get a feel for a place before you go. See what bars, restaurants, and venues look like on specific days and times. Does it match your vibe? Watch videos from other visitors to find out.",
-    additionalText: ""
+    alt: 'Rooftop bar at night',
+    description:
+      'Get a feel for a place before you go. See what bars, restaurants, and venues look like on specific days and times. Does it match your vibe? Watch videos from other visitors to find out.',
+    additionalText: '',
   },
   {
     src: '/screenshots/intro/bar-ambiance-feed.png',
-    alt: 'Bar from Pulse Feed',
-    description: "Get a feel for a place before you go. See what bars, restaurants, and venues look like on specific days and times. Does it match your vibe? Watch videos from other visitors to find out.",
-    additionalText: ""
+    alt: 'Bar from the Pulse Feed',
+    description:
+      'Get a feel for a place before you go. See what bars, restaurants, and venues look like on specific days and times. Does it match your vibe? Watch videos from other visitors to find out.',
+    additionalText: '',
   },
   {
     src: '/screenshots/intro/comedy-club.png',
-    alt: 'Comedy Club',
-    description: "Discover entertainment and events. From comedy clubs to live music, street festivals to cultural celebrations—find what's happening through real video moments.",
-    additionalText: ""
+    alt: 'Comedy club',
+    description:
+      "Discover entertainment and events. From comedy clubs to live music, street festivals to cultural celebrations — find what's happening through real video moments.",
+    additionalText: '',
   },
   {
     src: '/screenshots/intro/site-seeing.png',
-    alt: 'NYC Site Seeing',
-    description: "Experience iconic NYC landmarks. See architecture, sights, and tourist attractions through local perspectives and fresh angles.",
-    additionalText: ""
-  }
+    alt: 'City sightseeing',
+    description:
+      'Experience iconic city landmarks. See architecture, sights, and attractions through local perspectives and fresh angles.',
+    additionalText: '',
+  },
 ];
 
 export default function IntroSection() {
@@ -49,140 +55,129 @@ export default function IntroSection() {
 
   useEffect(() => {
     if (isPaused) return;
-
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % introSlides.length);
-    }, 8000); // Increased from 5000ms to 8000ms
+    }, 8000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  // Reset pause when section leaves viewport
   useEffect(() => {
     const section = document.getElementById('intro-section');
     if (!section) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) {
-          setIsPaused(false);
-        }
+        if (!entry.isIntersecting) setIsPaused(false);
       },
       { threshold: 0 }
     );
-
     observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
-  const handleUserInteraction = () => {
-    setIsPaused(true);
-  };
-
   const goToSlide = (index: number) => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex(index);
   };
-
   const nextSlide = () => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex((prev) => (prev + 1) % introSlides.length);
   };
-
   const prevSlide = () => {
-    handleUserInteraction();
+    setIsPaused(true);
     setCurrentIndex((prev) => (prev - 1 + introSlides.length) % introSlides.length);
   };
 
+  const slide = introSlides[currentIndex];
+
   return (
-    <section id="intro-section" className="section bg-black">
+    <section id="intro-section" className="section">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center text-white mb-16"
+          className="max-w-[640px] mx-auto mb-16 text-center"
         >
-          What is CityPulse?
-        </motion.h2>
+          <div className="eyebrow mb-5">Overview</div>
+          <h2 className="gradient-heading">What is CityPulse?</h2>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Feature row */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid lg:grid-cols-2 gap-12 lg:gap-[72px] items-center"
+        >
           {/* Carousel */}
-          <div className="relative">
-            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl bg-black">
+          <div className="carousel-shell relative">
+            <div className="frame-glow" />
+            <div className="frame h-[clamp(440px,58vw,600px)]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
-                  initial={{ opacity: 0, x: 100 }}
+                  initial={{ opacity: 0, x: 60 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex items-center justify-center"
+                  exit={{ opacity: 0, x: -60 }}
+                  transition={{ duration: 0.45 }}
+                  className="absolute inset-0"
                 >
                   <Image
-                    src={introSlides[currentIndex].src}
-                    alt={introSlides[currentIndex].alt}
+                    src={slide.src}
+                    alt={slide.alt}
                     fill
                     className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </motion.div>
               </AnimatePresence>
+            </div>
 
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-                aria-label="Previous slide"
-              >
-                ←
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-                aria-label="Next slide"
-              >
-                →
-              </button>
+            <button onClick={prevSlide} className="nav-arrow left-3.5" aria-label="Previous slide">
+              ‹
+            </button>
+            <button onClick={nextSlide} className="nav-arrow right-3.5" aria-label="Next slide">
+              ›
+            </button>
 
-              {/* Indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                {introSlides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentIndex ? 'bg-[#FF1744] w-6' : 'bg-white/50'
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
+            <div className="flex gap-1.5 justify-center mt-5">
+              {introSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Description */}
+          {/* Text */}
           <div>
+            <h3 className="text-white mb-4">Your city, endlessly explorable</h3>
             <AnimatePresence mode="wait">
               <motion.div
-                key={`${introSlides[currentIndex].description}-${introSlides[currentIndex].additionalText}`}
-                initial={{ opacity: 0, y: 20 }}
+                key={currentIndex}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.35 }}
               >
-                <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
-                  {introSlides[currentIndex].description}
+                <p className="text-[1.06rem] text-[var(--fg-2)] leading-relaxed">
+                  {slide.description}
                 </p>
-                {introSlides[currentIndex].additionalText && (
-                  <p className="text-md text-gray-400 leading-relaxed">
-                    {introSlides[currentIndex].additionalText}
+                {slide.additionalText && (
+                  <p className="text-[0.98rem] text-[var(--fg-3)] leading-relaxed mt-3.5">
+                    {slide.additionalText}
                   </p>
                 )}
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
